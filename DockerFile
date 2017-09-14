@@ -1,0 +1,20 @@
+From ubuntu:latest
+
+USER root
+
+RUN apt-get update
+RUN apt-get install -y \
+    default-jre \
+    build-essential \
+    xvfb \
+    curl \
+    node-gyp \
+    chromium-browser \
+    npm
+
+RUN npm i -g n
+RUN n latest
+
+RUN npm install -g chimp --unsafe-perm
+RUN curl https://install.meteor.com/ | sh
+
